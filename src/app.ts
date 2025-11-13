@@ -1,15 +1,20 @@
 import express from "express"
 import morgan from "morgan"
 
-import User from "./models/user.model"
-import Role from "./models/role.model"
+import userRoutes from "./routes/user.routes"
+import roleRoutes from "./routes/role.routes"
+import playerRoutes from "./routes/player.routes"
+import teamRoutes from "./routes/team.routes"
 
 const app = express()
 
 app.use(morgan("dev"))
+app.use(express.json())
 
-app.get("/about", (req,res)=>{
-  res.send("hello users app")
-})
+app.use("/api/users", userRoutes)
+app.use("/api/roles", roleRoutes)
+app.use("/api/players", playerRoutes)
+app.use("/api/teams", teamRoutes)
+
 
 export default app
