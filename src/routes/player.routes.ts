@@ -4,6 +4,7 @@ import { authenticate } from "../middlewares/auth.middleware";
 
 const router = Router()
 
-router.get("/",authenticate,playerCtrl.list)
+router.get("/",playerCtrl.list)
+router.get("/:id",playerCtrl.getOne)
 
 export default router 

@@ -4,6 +4,7 @@ import { authenticate } from "../middlewares/auth.middleware";
 
 const router = Router()
 
-router.get("/",authenticate,teamCtrl.list)
+router.get("/",teamCtrl.list)
+router.get("/:id",teamCtrl.getOne)
 
 export default router 
