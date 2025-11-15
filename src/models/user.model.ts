@@ -1,4 +1,4 @@
-import {Schema, model,Document} from "mongoose"
+import {Schema, model,Document,Types} from "mongoose"
 
 export interface IUser extends Document{
   firstname:string,
@@ -15,7 +15,8 @@ export interface IUser extends Document{
   phone?:string,
   favTeam?:string,
   password:string,
-  roles: Schema.Types.ObjectId
+  roles: 
+  Types.ObjectId[]
 }
 
 const UserSchema = new Schema<IUser>({
@@ -33,7 +34,7 @@ const UserSchema = new Schema<IUser>({
   phone: {type: String, required: true},
   favTeam: {type: String, required:true},
   password: {type:String, required:true},
-  roles: [{type : Schema.Types.ObjectId, ref: "Role", required: true}]
+  roles: [{type: Schema.Types.ObjectId, ref:"Role", required: true}]
 },{
   collection: "users",
   timestamps: true

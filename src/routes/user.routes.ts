@@ -4,6 +4,7 @@ import { validate } from "../middlewares/validate.middlewares"
 import { validateObjectId } from "../middlewares/validateObjectId.middlewares"
 import { createUserSchema, updateUserSchema } from "../validators/user.validator"
 import { authenticate } from "../middlewares/auth.middleware"
+import { hasAdminRole } from "../middlewares/user.middleware"
 
 const router = Router()
 
