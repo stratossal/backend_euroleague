@@ -1,5 +1,6 @@
 import express from "express"
 import morgan from "morgan"
+import cors from "cors"
 
 import userRoutes from "./routes/user.routes"
 import roleRoutes from "./routes/role.routes"
@@ -8,6 +9,12 @@ import teamRoutes from "./routes/team.routes"
 import authRoutes from "./routes/auth.routes"
 
 const app = express()
+
+app.use(cors({
+    origin: "*",
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"]
+}))
 
 app.use(morgan("dev"))
 app.use(express.json())
