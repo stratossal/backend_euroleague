@@ -17,6 +17,10 @@ const options: swaggerJSDoc.Options = {
     },
     servers: [
       {
+        url: "https://euroleague-backend-typescript.onrender.com/api",
+        description: "Render Production Server"
+      },
+      {
         url: "http://localhost:3000/api",
         description: "Local Server"
       }
