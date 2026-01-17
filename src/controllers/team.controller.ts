@@ -12,7 +12,7 @@ export const list = async (req:Request, res:Response, next:NextFunction)=>{
 
 export const getOne = async(req: Request, res: Response, next: NextFunction) => {
   try {
-    const result = await teamService.findTeamById(req.params.id!)
+    const result = await teamService.findTeamById(req.params.id! as string)
     if (!result) 
       return res.status(404).json({message: "Team not found"})
     res.status(201).json(result);
