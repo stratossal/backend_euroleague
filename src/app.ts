@@ -8,7 +8,11 @@ import playerRoutes from "./routes/player.routes"
 import teamRoutes from "./routes/team.routes"
 import authRoutes from "./routes/auth.routes"
 
+import { setupSwagger } from "./swagger"
+
 const app = express()
+
+setupSwagger(app)
 
 app.use(cors({
     origin: "*",
