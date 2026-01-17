@@ -12,7 +12,10 @@ export const list = async (req:Request, res:Response, next:NextFunction)=>{
 
 export const getOne = async(req: Request, res: Response, next: NextFunction) => {
   try {
-    const id = Array.isArray(req.params.id) ? req.params.id[0] : req.params.id;
+    const id = req.params.id;
+    if (!id) {
+      return res.status(400).json({message: "Missing ID parameter"});
+    }
     const result = await userService.findUserById(id)
     if (!result) 
       return res.status(404).json({message: "User not found"})
@@ -34,7 +37,10 @@ export const create = async (req:Request, res:Response, next:NextFunction)=>{
 
 export const update = async(req:Request, res:Response, next:NextFunction)=>{
   try{
-     const id = Array.isArray(req.params.id) ? req.params.id[0] : req.params.id;
+     const id = req.params.id;
+     if (!id) {
+       return res.status(400).json({message: "Missing ID parameter"});
+     }
      const result = await userService.updateUser(id, req.body)
      res.status(201).json(result)
   }catch(err){
@@ -44,10 +50,13 @@ export const update = async(req:Request, res:Response, next:NextFunction)=>{
 
 export const remove = async(req:Request, res:Response, next:NextFunction) =>{
   try{
-    const id = Array.isArray(req.params.id) ? req.params.id[0] : req.params.id;
+    const id = req.params.id;
+    if (!id) {
+      return res.status(400).json({message: "Missing ID parameter"});
+    }
     const result = await userService.deleteUser(id)
     res.status(200).json(result)    
   }catch(err){
     next(err)
   }
-}  
+}    
