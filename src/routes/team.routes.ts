@@ -10,6 +10,7 @@ const router = Router()
  *   get:
  *     summary: List all teams
  *     tags: [Teams]
+ *     security: []
  *     responses:
  *       200:
  *         description: List of all teams
@@ -39,6 +40,7 @@ router.get("/",teamCtrl.list)
  *   get:
  *     summary: Get a single team by ID
  *     tags: [Teams]
+ *     security: []
  *     parameters:
  *       - name: id
  *         in: path

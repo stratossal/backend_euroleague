@@ -10,6 +10,7 @@ const router = Router()
  *   get:
  *     summary: List all players
  *     tags: [Players]
+ *     security: []
  *     responses:
  *       200:
  *         description: List of all players
@@ -42,6 +43,7 @@ router.get("/",playerCtrl.list)
  *   get:
  *     summary: Get a single player by ID
  *     tags: [Players]
+ *     security: []
  *     parameters:
  *       - name: id
  *         in: path
